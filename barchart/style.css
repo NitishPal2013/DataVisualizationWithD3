@@ -24,11 +24,25 @@
     position: relative;
 }
 
+.chart{
+    width: auto;
+    height: auto;
+}
+
 .main .container #title {
     text-align: center;
     font-size: 2.5em;
 }
 
-.chart {
-    background-color: pink;
+
+.bar{
+    fill: #3183d6;
+}
+
+#tooltip{
+    fill: none;
+}
+.heading{
+    translate: 80px 230px ;
+    transform: rotate(-90deg);
 }
