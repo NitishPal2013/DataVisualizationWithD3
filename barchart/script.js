@@ -71,7 +71,7 @@ const svg = d3.select("div.container")
 svg.append('g').attr("id", "x-axis").attr("transform", `translate(0,${height - margin})`).call(xAxis);
 svg.append('g').attr("id", "y-axis").attr("transform", `translate(${margin},0)`).call(yAxis);
 
-const gap = (width - margin) / dataset.length - 0.1;
+const gap = (width - margin) / dataset.length;
 // axis name
 const head = svg.append("text").attr('class', 'heading').text('Gross Domestic Product');
 
