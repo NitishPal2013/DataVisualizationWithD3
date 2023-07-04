@@ -49,7 +49,7 @@ const svg = d3.select("div.container")
 svg.append('g').attr("id", "x-axis").attr("transform", `translate(0,${height - margin})`).call(xAxis);
 svg.append('g').attr("id", "y-axis").attr("transform", `translate(${margin},0)`).call(yAxis);
 
-const gap = (width - margin) / dataset.length;
+const gap = (width - margin) / dataset.length ;
 // axis name
 const head = svg.append("text").attr('class', 'heading').text('Gross Domestic Product');
 
@@ -57,8 +57,8 @@ svg.selectAll('rect').data(dataset).enter().append("rect").attr("class", "bar").
   .attr('width', gap).attr('height', (d) => height - margin - yScale(d[1]))
   .attr("data-date", (d) => `${d[0]}`).attr("data-gdp", (d) => `${d[1]}`).attr("index", (d,i) => `${i}`)
   .on("mouseover", function (d) {
-    tooltip.style("visibility", "visible").text(`(${extyrs(d.toElement.__data__[0])}, ${d.toElement.__data__[1]})`);
-    d.target.style.fill = "none";
+    tooltip.style("visibility", "visible").html(`${extyrs(d.toElement.__data__[0])}<br> $${d.toElement.__data__[1]}Billions`).attr("data-data",`${d.toElement.__data__[0]}`).style("top","350px").style("left",`${60 + anotherScale(d.target.attributes.index.value)}px`);
+    d.target.style.fill = "white";
   }).on("mouseout", function (d) {
     tooltip.style("visibility", "hidden");
     d.target.style.fill = "rgb(51, 173, 255)";
